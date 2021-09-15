@@ -85,12 +85,22 @@ function Car(model, milesPerGallon) {
     }
   Car.prototype.fill = function(gallons){
     this.tank = this.tank + gallons;
-  }
+      }
   Car.prototype.drive = function(distance){
-    for(let i = 0; i < this.distance; i--){
-      this.odometer = this.odometer + 1 
-    }
-  }
+    const driveMiles = this.tank * this.milesPerGallon;  
+    if(distance <= driveMiles){
+      this.odometer = this.odometer + distance;
+      this.tank = this.tank - (distance/this.milesPerGallon);
+    } 
+    else {
+      this.odometer = this.odometer + driveMiles;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    } 
+  } 
+  
+    
+
   
 
 
@@ -105,6 +115,8 @@ function Baby(name, age, favoriteToy) {
   this.favoriteToy = favoriteToy;
   Person.call(this, name, age);
 }
+  Baby.prototype = Object.create(Person.prototype);
+
  Baby.prototype.play = function(favoriteToy){
    return `Playing with ${this.favoriteToy}`;
  }
