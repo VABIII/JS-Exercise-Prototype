@@ -127,10 +127,24 @@ function Baby(name, age, favoriteToy) {
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  1.   Window binding ties the "this" keyword to the window object and gives context 
+       to an object. Without context, 'this' would refer to the entirety of the 
+       JavaScript code.  
+      
+  2.  Implicit binding refers to the properties of an object. Dot notation is an 
+      example of implicit binding, and when a function is invoked, 'this refers
+      to whatever is on the left of the dot. only applies to objects w/ methods. 
+
+  3.  Explicit binding gives context to an object directly. 
+      .call() - a function that will allow you to pass in 
+                individual arguments to use as 'this'.
+      .apply() - immediately invokes the function it is 
+                called on. Allows you to pass a function
+                argument as an array.   
+    
+  4. New binding creates a new copy of an object template and then passes it
+     it new arguments or you can pass it an object.
 */
 
 
